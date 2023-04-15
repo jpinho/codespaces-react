@@ -26,12 +26,14 @@
     -->
     <title>React App</title>
   </head>
-  <body>
+  <body style="padding: 10px;">
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div name="zipCode" style="width:100%; text-align:center">
-      <label for="zipCode">Zip Code Tester:</label>
-      <input id="zipCode" name="zipCode" type="text" />
+    
+    <div name="zipCode" style="width:100%; display: flex; flex-direction: column; text-align:left; padding: 20px 0;">
+      <label for="zipCode" style="margin-right:5px; font-weight: bold; display: flex;">Zip Code:</label>
+      <input id="zipCode" name="zipCode" type="text" style="flex-grow: 1; padding: 10px 5px; display: flex; margin-top: 10px;"/>
     </div>
+
     <epilot-gmaps></epilot-gmaps>
     <!--
       This HTML file is a template.
