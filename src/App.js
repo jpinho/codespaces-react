@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 
+const PUBLIC_GMAPS_KEY = 'AIzaSyACWsCQTJfbMBsVlBQ64LkP-2yn9Sr4Dpc';
+
 function App() {
   const [zipCode, setZipCode] = useState("Im+MediaPark+Cologne")
 
@@ -8,7 +10,7 @@ function App() {
     const zipCodeWatcher = window.setInterval(() => {
       const zipCodeEl = document.querySelector('div[name="zipCode"] input[type="text"]')
       
-      if (zipCodeEl && zipCodeEl.value.trim().length > 0) { 
+      if (zipCodeEl && zipCodeEl.value.trim().length > 0 && zipCodeEl.value !== zipCode) { 
         setZipCode(zipCodeEl.value) 
       }
     }, 100);
@@ -20,20 +22,13 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Welcome to epilot-maps custom block app!</h1>
-      <h2>Brought to you from GitHub Codespaces & Surge.sh</h2>
-
-      <hr />
-
-      {zipCode}
-
       <iframe
-        title="google maps"
+        title="Google Maps"
         width="100%"
         height="450"
         style={{ border:0 }}
         referrerpolicy="no-referrer-when-downgrade"
-        src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyACWsCQTJfbMBsVlBQ64LkP-2yn9Sr4Dpc&q=${zipCode}`}>
+        src={`https://www.google.com/maps/embed/v1/place?key=${PUBLIC_GMAPS_KEY}&q=${zipCode}`}>
       </iframe>
     </div>
   );
